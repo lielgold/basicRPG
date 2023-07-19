@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player_characters/assets/anti_tank_portrait.png" type="Texture" id=2]
+
+[node name="character" instance=ExtResource( 1 )]
+character_hp_archtype = 0
+character_speed_archtype = 1
+portrait = ExtResource( 2 )
+character_name = "Bob"
+part_of_player_party = true
+abilities_to_add_v2 = [ 3, 31, 33, 1, 30 ]
+passives_to_add_v2 = [ 6, 7 ]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://combat/battle_control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/weakling.tscn" type="PackedScene" id=2]
+
+[node name="combat_screen" instance=ExtResource( 1 )]
+
+[node name="weakling" parent="all_characters/enemies" index="0" instance=ExtResource( 2 )]
+margin_bottom = 600.0
+abilities_to_add_v2 = [ 3, 5, 1 ]
+
+[node name="tutorial_draft_message" type="RichTextLabel" parent="." index="5"]
+anchor_left = 0.0261905
+anchor_top = 0.813333
+anchor_right = 0.229
+anchor_bottom = 0.858
+margin_right = -0.720032
+margin_bottom = -0.200012
+bbcode_enabled = true
+bbcode_text = "[color=#f5472c]1. choose who will fight.[/color]"
+text = "1. choose who will fight."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="tutorial_use_abilities_message" type="RichTextLabel" parent="." index="6"]
+anchor_left = 0.36
+anchor_top = 0.172
+anchor_right = 0.597
+anchor_bottom = 0.172
+margin_left = -0.800049
+margin_top = -9.8
+margin_right = 0.039978
+margin_bottom = 9.2
+bbcode_enabled = true
+bbcode_text = "[color=#f5472c]2. Pick what abilities to use by clicking the grey button.[/color]"
+text = "2. Pick what abilities to use by clicking the grey button."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="tutorial_movement_message" type="RichTextLabel" parent="." index="7"]
+anchor_left = 0.36
+anchor_top = 0.199
+anchor_right = 0.619167
+anchor_bottom = 0.222
+margin_left = -0.800049
+margin_top = -0.100021
+margin_right = 0.799988
+margin_bottom = 0.199982
+bbcode_enabled = true
+bbcode_text = "[color=#f5472c]3. You can move the character by clicking on the arrows.[/color]"
+text = "3. You can move the character by clicking on the arrows."
+__meta__ = {
+"_edit_use_anchors_": true
+}

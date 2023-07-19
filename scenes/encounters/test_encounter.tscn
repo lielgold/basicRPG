@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/characters/AP_guy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/characters/bob.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/battle_control.tscn" type="PackedScene" id=4]
+
+[node name="combat_screen" instance=ExtResource( 4 )]
+
+[node name="bob" parent="all_characters/enemies" index="0" instance=ExtResource( 2 )]
+margin_bottom = 600.0
+mouse_filter = 0
+passives_to_add_v2 = [ 3 ]
+
+[node name="character" parent="all_characters/enemies" index="1" instance=ExtResource( 1 )]
+margin_left = 134.0
+margin_right = 264.0
+margin_bottom = 600.0
+mouse_filter = 0
+passives_to_add_v2 = [ 4, 5 ]

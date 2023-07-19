@@ -1,0 +1,302 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://character/health_bar/health_bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/target.png" type="Texture" id=6]
+[ext_resource path="res://scripts/character.gd" type="Script" id=7]
+[ext_resource path="res://character/abilities_manager.gd" type="Script" id=10]
+[ext_resource path="res://character/passives_manager.gd" type="Script" id=11]
+[ext_resource path="res://assets/generic portrait.png" type="Texture" id=12]
+[ext_resource path="res://character/item_manager.gd" type="Script" id=13]
+[ext_resource path="res://menus/party_menu/open_character_menu_button.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage_taken:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 34, 215 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damage_taken:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("damage_taken:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("damage_taken:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("notification:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("notification:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "damage taken"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage_taken:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Vector2( 34, 220 ), Vector2( 34, 200 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damage_taken:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("damage_taken:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "did ability ally"
+length = 1.1
+
+[sub_resource type="Animation" id=7]
+resource_name = "did ability enemy"
+length = 1.1
+
+[sub_resource type="Animation" id=8]
+resource_name = "notification message"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("notification:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("notification:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="character" type="Control" groups=["save_me"]]
+margin_right = 130.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 130, 600 )
+mouse_filter = 2
+script = ExtResource( 7 )
+portrait = ExtResource( 12 )
+character_name = "standard"
+
+[node name="abilities_manager" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="passives_manager" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="items_manager" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="open_character_menu_button" parent="." instance=ExtResource( 14 )]
+anchor_top = 0.513333
+anchor_bottom = 0.513333
+margin_right = 115.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="target_indicator" type="TextureRect" parent="open_character_menu_button"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -26.5
+margin_top = -24.0
+margin_right = 26.5
+margin_bottom = 24.0
+texture = ExtResource( 6 )
+
+[node name="health_bar" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="name" type="Label" parent="."]
+anchor_left = -0.161538
+anchor_right = -0.161538
+margin_left = 23.0
+margin_top = 290.0
+margin_right = 143.0
+margin_bottom = 304.0
+text = "standard"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="status_ailments" type="RichTextLabel" parent="."]
+margin_left = 1.0
+margin_top = 460.0
+margin_right = 151.0
+margin_bottom = 515.0
+text = "status ailments"
+
+[node name="passives_text" type="RichTextLabel" parent="."]
+margin_left = 4.0
+margin_top = 511.0
+margin_right = 113.0
+margin_bottom = 594.0
+text = "passives"
+
+[node name="ap_text" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 62.0
+margin_top = 412.0
+margin_right = 112.0
+margin_bottom = 452.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "AP: 100"
+
+[node name="current_turn_indicator" type="Sprite" parent="."]
+visible = false
+position = Vector2( 54, 235 )
+scale = Vector2( 0.66, 0.61 )
+texture = ExtResource( 2 )
+
+[node name="damage_taken" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 34.0
+margin_top = 215.0
+margin_right = 74.0
+margin_bottom = 255.0
+custom_colors/default_color = Color( 1, 0.0588235, 0.0588235, 1 )
+text = "99"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+"anims/damage taken" = SubResource( 5 )
+"anims/did ability ally" = SubResource( 6 )
+"anims/did ability enemy" = SubResource( 7 )
+"anims/notification message" = SubResource( 8 )
+
+[node name="notification" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -4.0
+margin_top = 227.0
+margin_right = 122.0
+margin_bottom = 267.0
+text = "general notification"
+
+[node name="item_slot_1" type="RichTextLabel" parent="."]
+margin_left = 5.0
+margin_top = 561.0
+margin_right = 98.0
+margin_bottom = 590.0
+text = "item slot 1:"
+
+[node name="item_slot_2" type="RichTextLabel" parent="."]
+margin_left = 3.0
+margin_top = 582.0
+margin_right = 96.0
+margin_bottom = 611.0
+text = "item slot 2:"
+
+[node name="movement_text" type="Label" parent="."]
+anchor_left = 0.484615
+anchor_top = 0.66
+anchor_right = 0.746154
+anchor_bottom = 0.66
+margin_right = 40.0
+margin_bottom = 14.0
+text = "movement:"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="ap_points_changed" from="." to="." method="_on_character_ap_points_changed"]
+[connection signal="character_did_ability" from="." to="." method="_on_character_did_ability"]
+[connection signal="character_healed" from="." to="." method="_on_character_character_healed"]
+[connection signal="character_notification_text" from="." to="." method="_on_character_character_notification_text"]
+[connection signal="character_took_damage" from="." to="." method="_on_character_took_damage"]
+[connection signal="status_ailments_changed" from="." to="." method="update_gui_status_ailments"]

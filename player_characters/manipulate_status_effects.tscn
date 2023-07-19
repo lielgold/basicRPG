@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player_characters/assets/dog, side profile, white background, amazing, drawing, black and white, linotype print in the style of william blake2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=2]
+
+[node name="character" instance=ExtResource( 2 )]
+character_speed_archtype = 1
+portrait = ExtResource( 1 )
+character_name = "Dave"
+part_of_player_party = true
+abilities_to_add_v2 = [ 3, 34, 35, 37, 1 ]

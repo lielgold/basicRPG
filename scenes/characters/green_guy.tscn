@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/green guy.png" type="Texture" id=3]
+
+[node name="character" instance=ExtResource( 1 )]
+portrait = ExtResource( 3 )
+character_name = "green guy"
+max_hp = 120
+abilities_to_add_v2 = [ 11, 15, 5, 1 ]
+
+[node name="hp_progress_bar" parent="health_bar" index="1"]
+margin_left = 3.8147e-06
+
+[node name="name" parent="." index="5"]
+text = "green guy"

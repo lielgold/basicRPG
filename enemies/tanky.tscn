@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/assets/monk_wolf2.png" type="Texture" id=2]
+
+[node name="tanky" instance=ExtResource( 1 )]
+portrait = ExtResource( 2 )
+character_name = "tanky"
+stat_multiplier = 1.2
+abilities_to_add_v2 = [ 15, 32, 3, 1, 32, 33 ]

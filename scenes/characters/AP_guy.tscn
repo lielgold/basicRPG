@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/ap_guy.png" type="Texture" id=2]
+
+[node name="character2" instance=ExtResource( 1 )]
+portrait = ExtResource( 2 )
+character_name = "AP guy"
+max_hp = 24
+base_attack_power = 6
+abilities_to_add_v2 = [ 20, 21, 22, 3 ]
+passives_to_add_v2 = [ 0, 4, 5 ]
+
+[node name="name" parent="." index="6"]
+text = "AP guy"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/battle_control.tscn" type="PackedScene" id=2]
+
+
+[node name="first_encounter" instance=ExtResource( 2 )]
+
+[node name="character" parent="all_characters/enemies" index="0" instance=ExtResource( 1 )]
+margin_bottom = 600.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=2]
+
+[node name="abe" instance=ExtResource( 2 )]
+character_name = "abe"
+
+[node name="name" parent="." index="6"]
+text = "abe"

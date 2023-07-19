@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tanky portrait.png" type="Texture" id=2]
+
+[node name="character" instance=ExtResource( 1 )]
+portrait = ExtResource( 2 )
+character_name = "tanky guy"
+max_hp = 1000
+abilities_to_add_v2 = [ 0, 0, 0, 0 ]
+passives_to_add_v2 = [ 0 ]

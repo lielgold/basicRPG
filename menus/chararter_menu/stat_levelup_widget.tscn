@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menus/chararter_menu/stat levelup widget.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[node name="stat widget" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="decrease" type="Button" parent="."]
+margin_right = 20.0
+margin_bottom = 40.0
+text = "<"
+
+[node name="stat_middle_button" type="Button" parent="."]
+margin_left = 24.0
+margin_right = 60.0
+margin_bottom = 40.0
+hint_tooltip = "description of the stat"
+text = "stat"
+
+[node name="increase" type="Button" parent="."]
+margin_left = 64.0
+margin_right = 84.0
+margin_bottom = 40.0
+theme = SubResource( 1 )
+text = ">"

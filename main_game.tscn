@@ -1,0 +1,1018 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://menus/party_menu/party_menu_container.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gui_elements_container_in_main.gd" type="Script" id=2]
+[ext_resource path="res://maps/map_002/assets/countryside-transformed.png" type="Texture" id=3]
+[ext_resource path="res://menus/save_game_menu/save_load_menu.gd" type="Script" id=4]
+[ext_resource path="res://menus/auto_resolve_combat_menu/auto_resolve_combat_menu.gd" type="Script" id=5]
+[ext_resource path="res://assets/stairs.png" type="Texture" id=6]
+[ext_resource path="res://scripts/main_game.gd" type="Script" id=7]
+[ext_resource path="res://scripts/overworld.gd" type="Script" id=8]
+[ext_resource path="res://menus/party_menu/open_character_menu_button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://maps/map_003/encounters/encounter_001.tscn" type="PackedScene" id=10]
+[ext_resource path="res://maps/map_003/assets/2235275014-country_side__amazing__drawing__wood_cut_by_Albrecht_Dýrer__black_and_white-transformed.png" type="Texture" id=11]
+[ext_resource path="res://maps/map_001/assets/country_side__drawing__wood_cut_by_Albrecht_Dýrer__black_and_white-transformed.jpeg" type="Texture" id=12]
+[ext_resource path="res://maps/map_003/assets/dogs, hat,  birth day party, amazing, drawing, wood cut by Albrecht Dürer, black and white.png" type="Texture" id=13]
+[ext_resource path="res://menus/auto_resolve_combat_menu/win_record_widget.tscn" type="PackedScene" id=14]
+[ext_resource path="res://maps/map_001/encounters/encounter_001.tscn" type="PackedScene" id=15]
+[ext_resource path="res://menus/chararter_menu/character menu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://maps/map_001/encounters/encounter_004.tscn" type="PackedScene" id=17]
+[ext_resource path="res://player_characters/anti_tank.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventAddCharToParty.tscn" type="PackedScene" id=19]
+[ext_resource path="res://player_characters/manipulate_status_effects.tscn" type="PackedScene" id=20]
+[ext_resource path="res://player_characters/assets/anti_tank_portrait.png" type="Texture" id=21]
+[ext_resource path="res://menus/rewards_menu/player_got_rewards_menu.gd" type="Script" id=22]
+[ext_resource path="res://menus/rewards_menu/item_reward_widget.tscn" type="PackedScene" id=23]
+[ext_resource path="res://menus/rewards_menu/xp_reward_widget.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scripts/MapEvents/MapNode.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventUnlockNodes.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventChangeMap.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventCombatEncounter.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventReward.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/maps/standard_map.gd" type="Script" id=30]
+[ext_resource path="res://maps/tutorial_map3/assets/sad wolves, expressionism, black and white, high contrast, Linotype print.jpg" type="Texture" id=31]
+[ext_resource path="res://menus/encounter_menu/encounter_menu.gd" type="Script" id=32]
+[ext_resource path="res://assets/under_construction.png" type="Texture" id=33]
+[ext_resource path="res://player_characters/assets/manipulate_status_effects_portrait.png" type="Texture" id=34]
+[ext_resource path="res://scripts/MapEvents/event_nodes/MapEventEncounter.tscn" type="PackedScene" id=35]
+[ext_resource path="res://maps/map_002/encounters/encounter_002.tscn" type="PackedScene" id=36]
+[ext_resource path="res://maps/map_002/encounters/encounter_001.tscn" type="PackedScene" id=37]
+[ext_resource path="res://enemies/assets/monk_wolf2.png" type="Texture" id=38]
+[ext_resource path="res://enemies/assets/monk_wolf.png" type="Texture" id=39]
+[ext_resource path="res://maps/map_003/assets/wolf cub, black and white, high contrast, Linotype print.png" type="Texture" id=40]
+[ext_resource path="res://maps/map_003/encounters/encounter_002.tscn" type="PackedScene" id=41]
+[ext_resource path="res://maps/map_003/assets/wolf cub, black and white, high contrast, Linotype print 3.jpg" type="Texture" id=42]
+[ext_resource path="res://assets/menus/rest button.png" type="Texture" id=43]
+[ext_resource path="res://assets/menus/rest button text.png" type="Texture" id=44]
+[ext_resource path="res://assets/menus/save button.png" type="Texture" id=45]
+[ext_resource path="res://assets/menus/debug button.png" type="Texture" id=46]
+[ext_resource path="res://assets/menus/save button text.png" type="Texture" id=47]
+[ext_resource path="res://assets/menus/debug button text.png" type="Texture" id=48]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/general_message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/general_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show_general_message"
+length = 3.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/general_message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.3, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/general_message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 3, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+
+[node name="main_game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_vertical_guides_": [ -210.0, -136.0 ]
+}
+
+[node name="overworld" type="Control" parent="." groups=["save_me", "to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+start_map = NodePath("maps/map_001")
+
+[node name="maps" type="Control" parent="overworld" groups=["to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="map_001" type="Control" parent="overworld/maps" groups=["to_be_saved"]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 30 )
+
+[node name="map_background" type="TextureRect" parent="overworld/maps/map_001"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 12 )
+expand = true
+
+[node name="nodes" type="Control" parent="overworld/maps/map_001" groups=["to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="map_node_001" parent="overworld/maps/map_001/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.258929
+anchor_top = 0.697778
+anchor_right = 0.318452
+anchor_bottom = 0.753333
+margin_right = 0.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+start_node = true
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_001/nodes/map_node_001/events_lists/events_list1" index="0" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight1") ]
+
+[node name="fight1" parent="overworld/maps/map_001/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.427381
+anchor_top = 0.754444
+anchor_right = 0.477381
+anchor_bottom = 0.754444
+margin_right = 16.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_001/nodes/fight1/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "The wolves look at you."
+encounter_menu_picture = ExtResource( 31 )
+call_scene = ExtResource( 15 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_001/nodes/fight1/events_lists/events_list1" index="1" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight2") ]
+
+[node name="MapEventReward" parent="overworld/maps/map_001/nodes/fight1/events_lists/events_list1" index="2" instance=ExtResource( 29 )]
+character_id_to_get_xp_rewards = [ 6 ]
+character_xp_rewards = [ 1 ]
+
+[node name="fight2" parent="overworld/maps/map_001/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.685714
+anchor_top = 0.666667
+anchor_right = 0.745238
+anchor_bottom = 0.777778
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_001/nodes/fight2/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+call_scene = ExtResource( 17 )
+
+[node name="MapEventReward" parent="overworld/maps/map_001/nodes/fight2/events_lists/events_list1" index="1" instance=ExtResource( 29 )]
+character_id_to_get_xp_rewards = [ 7 ]
+character_xp_rewards = [ 1 ]
+reward_timer = 3
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_001/nodes/fight2/events_lists/events_list1" index="2" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../character_joins") ]
+
+[node name="character_joins" parent="overworld/maps/map_001/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.880357
+anchor_top = 0.518889
+anchor_right = 0.939881
+anchor_bottom = 0.63
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventEncounter" parent="overworld/maps/map_001/nodes/character_joins/events_lists/events_list1" index="0" instance=ExtResource( 35 )]
+encounter_menu_text = "This guy decided to join you!"
+encounter_menu_picture = ExtResource( 21 )
+
+[node name="MapEventAddCharToParty" parent="overworld/maps/map_001/nodes/character_joins/events_lists/events_list1" index="1" instance=ExtResource( 19 )]
+charcter_to_add_resource = ExtResource( 18 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_001/nodes/character_joins/events_lists/events_list1" index="2" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../change_map") ]
+
+[node name="change_map" parent="overworld/maps/map_001/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.826786
+anchor_top = 0.425556
+anchor_right = 0.88631
+anchor_bottom = 0.536667
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventChangeMap" parent="overworld/maps/map_001/nodes/change_map/events_lists/events_list1" index="0" instance=ExtResource( 27 )]
+switch_to_this_map = NodePath("../../../../../../map_002")
+
+[node name="ow_node_sprite" parent="overworld/maps/map_001/nodes/change_map" index="4"]
+texture = ExtResource( 6 )
+
+[node name="map_002" type="Control" parent="overworld/maps" groups=["to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 30 )
+
+[node name="map_background" type="TextureRect" parent="overworld/maps/map_002"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="nodes" type="Control" parent="overworld/maps/map_002" groups=["to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="map_node_001" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.0744048
+anchor_top = 0.62
+anchor_right = 0.133929
+anchor_bottom = 0.731111
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+start_node = true
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_002/nodes/map_node_001/events_lists/events_list1" index="0" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight1") ]
+
+[node name="fight1" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.199405
+anchor_top = 0.715556
+anchor_right = 0.258929
+anchor_bottom = 0.826667
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_002/nodes/fight1/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "Small wolves are looking at you hungrily."
+encounter_menu_picture = ExtResource( 38 )
+call_scene = ExtResource( 37 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_002/nodes/fight1/events_lists/events_list1" index="1" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight2"), NodePath("../../../../item_reward") ]
+
+[node name="fight2" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.372619
+anchor_top = 0.678889
+anchor_right = 0.432143
+anchor_bottom = 0.79
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_002/nodes/fight2/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "A bigger one joins them."
+encounter_menu_picture = ExtResource( 39 )
+call_scene = ExtResource( 36 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_002/nodes/fight2/events_lists/events_list1" index="1" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../change_map") ]
+
+[node name="item_reward" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.267262
+anchor_top = 0.516667
+anchor_right = 0.326786
+anchor_bottom = 0.627778
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventReward" parent="overworld/maps/map_002/nodes/item_reward/events_lists/events_list1" index="0" instance=ExtResource( 29 )]
+character_id_to_get_xp_rewards = [ 4 ]
+character_xp_rewards = [ 1 ]
+item_rewards = [ 1 ]
+reward_timer = 3
+
+[node name="character_joins" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.606548
+anchor_top = 0.698889
+anchor_right = 0.666071
+anchor_bottom = 0.81
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventEncounter" parent="overworld/maps/map_002/nodes/character_joins/events_lists/events_list1" index="0" instance=ExtResource( 35 )]
+position = Vector2( 1087, 470 )
+encounter_menu_text = "This one decided to join you!"
+encounter_menu_picture = ExtResource( 34 )
+
+[node name="MapEventAddCharToParty" parent="overworld/maps/map_002/nodes/character_joins/events_lists/events_list1" index="1" instance=ExtResource( 19 )]
+charcter_to_add_resource = ExtResource( 20 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_002/nodes/character_joins/events_lists/events_list1" index="2" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../change_map") ]
+
+[node name="change_map" parent="overworld/maps/map_002/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.685714
+anchor_top = 0.561111
+anchor_right = 0.745238
+anchor_bottom = 0.672222
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventChangeMap" parent="overworld/maps/map_002/nodes/change_map/events_lists/events_list1" index="0" instance=ExtResource( 27 )]
+switch_to_this_map = NodePath("../../../../../../map_003")
+
+[node name="ow_node_sprite" parent="overworld/maps/map_002/nodes/change_map" index="4"]
+texture = ExtResource( 6 )
+
+[node name="map_003" type="Control" parent="overworld/maps" groups=["to_be_saved"]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 30 )
+
+[node name="map_background" type="TextureRect" parent="overworld/maps/map_003"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+
+[node name="nodes" type="Control" parent="overworld/maps/map_003" groups=["to_be_saved"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="map_node_001" parent="overworld/maps/map_003/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.761905
+anchor_top = 0.7
+anchor_right = 0.821429
+anchor_bottom = 0.811111
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+start_node = true
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_003/nodes/map_node_001/events_lists/events_list1" index="0" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight1") ]
+
+[node name="fight1" parent="overworld/maps/map_003/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.63631
+anchor_top = 0.622222
+anchor_right = 0.695833
+anchor_bottom = 0.733333
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_003/nodes/fight1/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "An odd noise comes from the bushes."
+encounter_menu_picture = ExtResource( 40 )
+call_scene = ExtResource( 10 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_003/nodes/fight1/events_lists/events_list1" index="1" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../fight2") ]
+
+[node name="fight2" parent="overworld/maps/map_003/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.411905
+anchor_top = 0.576667
+anchor_right = 0.471429
+anchor_bottom = 0.687778
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventCombatEncounter" parent="overworld/maps/map_003/nodes/fight2/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "One last wolf stands before the house."
+encounter_menu_picture = ExtResource( 42 )
+call_scene = ExtResource( 41 )
+
+[node name="MapEventUnlockNodes" parent="overworld/maps/map_003/nodes/fight2/events_lists/events_list1" index="1" instance=ExtResource( 26 )]
+unlock_nodes_editor = [ NodePath("../../../../end_game_notification") ]
+
+[node name="end_game_notification" parent="overworld/maps/map_003/nodes" instance=ExtResource( 25 )]
+anchor_left = 0.370238
+anchor_top = 0.433333
+anchor_right = 0.429762
+anchor_bottom = 0.544444
+margin_right = 0.0
+margin_bottom = 0.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MapEventEncounter" parent="overworld/maps/map_003/nodes/end_game_notification/events_lists/events_list1" index="0" instance=ExtResource( 28 )]
+encounter_menu_text = "You won! That's the end of the tech demo."
+encounter_menu_picture = ExtResource( 13 )
+
+[node name="day_indicator" type="Label" parent="overworld"]
+anchor_left = 0.749405
+anchor_top = 0.821111
+anchor_right = 0.764881
+anchor_bottom = 0.836667
+text = "day:"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="rest_button" type="TextureButton" parent="overworld"]
+anchor_left = 0.722
+anchor_top = 0.85
+anchor_right = 0.793
+anchor_bottom = 0.983
+margin_left = 0.039917
+margin_right = 0.759888
+margin_bottom = 0.299988
+hint_tooltip = "Heals party, enemies respawn. Ends the day."
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 44 )
+texture_hover = ExtResource( 44 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="open_save_load_menu_button" type="TextureButton" parent="overworld"]
+anchor_left = 0.821
+anchor_top = 0.852
+anchor_right = 0.892
+anchor_bottom = 0.986
+margin_left = -0.280029
+margin_top = 0.199951
+margin_right = 0.439941
+margin_bottom = -0.400024
+hint_tooltip = "Save and load the game."
+texture_normal = ExtResource( 45 )
+texture_pressed = ExtResource( 47 )
+texture_hover = ExtResource( 47 )
+expand = true
+
+[node name="debug_button" type="TextureButton" parent="overworld"]
+anchor_left = 0.917
+anchor_top = 0.851
+anchor_right = 0.989
+anchor_bottom = 0.984
+margin_left = 0.439941
+margin_top = 0.0999756
+margin_right = -0.52002
+margin_bottom = 0.399963
+hint_tooltip = "Debug mode."
+texture_normal = ExtResource( 46 )
+texture_pressed = ExtResource( 48 )
+texture_hover = ExtResource( 48 )
+expand = true
+
+[node name="gui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="encounter_menu" type="Control" parent="gui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 32 )
+
+[node name="menu_panel" type="Panel" parent="gui/encounter_menu"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="encounter_image" type="TextureRect" parent="gui/encounter_menu"]
+anchor_left = 0.546429
+anchor_top = 0.113333
+anchor_right = 0.977429
+anchor_bottom = 0.913333
+texture = ExtResource( 33 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="encounter_text" type="Label" parent="gui/encounter_menu"]
+anchor_left = 0.200595
+anchor_top = 0.138889
+anchor_right = 0.243452
+anchor_bottom = 0.138889
+margin_right = 40.0
+margin_bottom = 14.0
+text = "encounter details"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="go_back_button" type="Button" parent="gui/encounter_menu"]
+anchor_left = 0.129167
+anchor_top = 0.695556
+anchor_right = 0.159524
+anchor_bottom = 0.695556
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Go back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="fight_button" type="Button" parent="gui/encounter_menu"]
+anchor_left = 0.338095
+anchor_top = 0.7
+anchor_right = 0.374405
+anchor_bottom = 0.7
+margin_right = 12.0
+margin_bottom = 20.0
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="party_menu_container" type="HBoxContainer" parent="gui"]
+anchor_left = 0.00535714
+anchor_top = 0.856
+anchor_right = 0.471
+anchor_bottom = 0.988889
+margin_top = -0.400024
+margin_right = 0.119995
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="open_character_menu_button_resource" parent="gui/party_menu_container" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 115.0
+margin_bottom = 120.0
+
+[node name="character_menu" parent="gui" instance=ExtResource( 16 )]
+visible = false
+
+[node name="auto_resolve_combat_menu" type="Control" parent="gui"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -457.5
+margin_top = -291.5
+margin_right = 457.5
+margin_bottom = 291.5
+script = ExtResource( 5 )
+
+[node name="Panel" type="Panel" parent="gui/auto_resolve_combat_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="title" type="Label" parent="gui/auto_resolve_combat_menu"]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+margin_left = -66.0
+margin_right = 66.0
+margin_bottom = 14.0
+text = "auto-resolve combat"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/auto_resolve_combat_menu"]
+margin_left = 90.0
+margin_top = 89.0
+margin_right = 843.0
+margin_bottom = 498.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/auto_resolve_combat_menu/ScrollContainer"]
+margin_right = 753.0
+margin_bottom = 130.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="win_record_widget" parent="gui/auto_resolve_combat_menu/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+
+[node name="fight_anyway_button" type="Button" parent="gui/auto_resolve_combat_menu"]
+anchor_left = 0.5
+anchor_top = 0.98
+anchor_right = 0.5
+anchor_bottom = 0.98
+margin_left = -108.5
+margin_top = -50.0
+margin_right = 108.5
+text = "Fight"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gui"]
+anims/RESET = SubResource( 1 )
+anims/show_general_message = SubResource( 2 )
+
+[node name="general_message" type="RichTextLabel" parent="gui/AnimationPlayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.0
+margin_top = -52.5
+margin_right = 212.0
+margin_bottom = 52.5
+text = "test test test"
+
+[node name="save_load_menu" type="Control" parent="gui"]
+visible = false
+anchor_left = 0.03
+anchor_top = 0.05
+anchor_right = 0.97
+anchor_bottom = 0.95
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="menu_panel" type="Panel" parent="gui/save_load_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/save_load_menu"]
+anchor_left = 0.02
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.85
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="gui/save_load_menu/ScrollContainer"]
+margin_right = 1516.03
+margin_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/hseparation = 30
+
+[node name="save_game_widget" type="Control" parent="gui/save_load_menu/ScrollContainer/GridContainer"]
+margin_right = 1516.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 30, 120 )
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="gui/save_load_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="LineEdit" type="LineEdit" parent="gui/save_load_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.0620053
+anchor_top = 0.26
+anchor_right = 0.262533
+anchor_bottom = 0.586667
+margin_right = 58.0
+margin_bottom = 24.0
+text = "save name"
+max_length = 30
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="save_date" type="Label" parent="gui/save_load_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.84038
+anchor_top = 0.504167
+anchor_right = 0.84038
+anchor_bottom = 0.504167
+margin_left = -240.0
+margin_top = -28.0
+margin_bottom = 28.0
+custom_styles/normal = SubResource( 4 )
+text = "save dat"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="delete_button" type="Button" parent="gui/save_load_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.897098
+anchor_top = 0.25
+anchor_right = 0.920844
+anchor_bottom = 0.25
+margin_right = 100.0
+margin_bottom = 60.0
+text = "delete button"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="close_menu_button" type="Button" parent="gui/save_load_menu"]
+anchor_left = 0.52343
+anchor_top = 0.967901
+anchor_right = 0.52343
+anchor_bottom = 0.967901
+margin_left = -33.0
+margin_top = -26.0
+margin_right = 33.0
+text = "close"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="new_save_button" type="Button" parent="gui/save_load_menu"]
+anchor_left = 0.467072
+anchor_top = 0.967901
+anchor_right = 0.467072
+anchor_bottom = 0.967901
+margin_left = -33.0
+margin_top = -26.0
+margin_right = 33.0
+text = "New save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="player_got_rewards_menu" type="Control" parent="gui"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -629.5
+margin_top = -323.0
+margin_right = 629.5
+margin_bottom = 323.0
+mouse_filter = 2
+script = ExtResource( 22 )
+
+[node name="menu_panel" type="Panel" parent="gui/player_got_rewards_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/player_got_rewards_menu"]
+visible = false
+anchor_left = 0.02
+anchor_top = 0.5
+anchor_right = 0.98
+anchor_bottom = 0.85
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="gui/player_got_rewards_menu/ScrollContainer"]
+margin_right = 1208.64
+margin_bottom = 226.1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/hseparation = 30
+
+[node name="save_game_widget" type="Control" parent="gui/player_got_rewards_menu/ScrollContainer/GridContainer"]
+margin_right = 1516.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 30, 120 )
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="gui/player_got_rewards_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="LineEdit" type="LineEdit" parent="gui/player_got_rewards_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.0620053
+anchor_top = 0.26
+anchor_right = 0.262533
+anchor_bottom = 0.586667
+margin_right = 58.0
+margin_bottom = 24.0
+text = "save name"
+max_length = 30
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="save_date" type="Label" parent="gui/player_got_rewards_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.84038
+anchor_top = 0.504167
+anchor_right = 0.84038
+anchor_bottom = 0.504167
+margin_left = -240.0
+margin_top = -28.0
+margin_bottom = 28.0
+custom_styles/normal = SubResource( 4 )
+text = "save dat"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="delete_button" type="Button" parent="gui/player_got_rewards_menu/ScrollContainer/GridContainer/save_game_widget"]
+anchor_left = 0.897098
+anchor_top = 0.25
+anchor_right = 0.920844
+anchor_bottom = 0.25
+margin_right = 100.0
+margin_bottom = 60.0
+text = "delete button"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="close_menu_button" type="Button" parent="gui/player_got_rewards_menu"]
+anchor_left = 0.5
+anchor_top = 0.98
+anchor_right = 0.5
+anchor_bottom = 0.98
+margin_left = -33.0
+margin_top = -26.0
+margin_right = 33.0
+text = "close"
+
+[node name="menu_title" type="Label" parent="gui/player_got_rewards_menu"]
+anchor_left = 0.5
+anchor_top = 0.02
+anchor_right = 0.5
+anchor_bottom = 0.02
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+text = "Rewards"
+
+[node name="item_rewards" type="Control" parent="gui/player_got_rewards_menu"]
+anchor_left = 0.02
+anchor_top = 0.503704
+anchor_right = 0.98
+anchor_bottom = 0.703704
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="title" type="Label" parent="gui/player_got_rewards_menu/item_rewards"]
+anchor_left = 0.5
+anchor_top = -0.0759717
+anchor_right = 0.5
+anchor_bottom = -0.0759717
+margin_left = -44.5
+margin_top = -7.0
+margin_right = 44.5
+margin_bottom = 7.0
+text = "Item rewards"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="CenterContainer" parent="gui/player_got_rewards_menu/item_rewards"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = -60.0
+margin_right = 270.0
+margin_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/player_got_rewards_menu/item_rewards/ScrollContainer"]
+margin_left = 210.0
+margin_right = 330.0
+margin_bottom = 120.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="item_reward_widget" parent="gui/player_got_rewards_menu/item_rewards/ScrollContainer/HBoxContainer" instance=ExtResource( 23 )]
+
+[node name="xp_rewards" type="Control" parent="gui/player_got_rewards_menu"]
+anchor_left = 0.02
+anchor_top = 0.190124
+anchor_right = 0.98
+anchor_bottom = 0.390124
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="title" type="Label" parent="gui/player_got_rewards_menu/xp_rewards"]
+anchor_left = 0.5
+anchor_top = -0.0759717
+anchor_right = 0.5
+anchor_bottom = -0.0759717
+margin_left = -44.5
+margin_top = -7.0
+margin_right = 44.5
+margin_bottom = 7.0
+text = "XP rewards"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="CenterContainer" parent="gui/player_got_rewards_menu/xp_rewards"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = -60.0
+margin_right = 270.0
+margin_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/player_got_rewards_menu/xp_rewards/ScrollContainer"]
+margin_left = 210.0
+margin_right = 330.0
+margin_bottom = 120.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="xp_reward_widget" parent="gui/player_got_rewards_menu/xp_rewards/ScrollContainer/HBoxContainer" instance=ExtResource( 24 )]
+
+[node name="xp_for_non_party_characters" type="Label" parent="gui/player_got_rewards_menu/xp_rewards"]
+anchor_left = -0.0639829
+anchor_top = 0.456788
+anchor_right = 0.0784943
+anchor_bottom = 0.456788
+margin_left = 758.016
+margin_top = 74.0
+margin_right = 758.016
+margin_bottom = 88.0
+text = "Characters not in the party got xp."
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="player_party" type="Node" parent="."]
+
+[editable path="overworld/maps/map_001/nodes/map_node_001"]
+[editable path="overworld/maps/map_001/nodes/fight1"]
+[editable path="overworld/maps/map_001/nodes/fight2"]
+[editable path="overworld/maps/map_001/nodes/character_joins"]
+[editable path="overworld/maps/map_001/nodes/change_map"]
+[editable path="overworld/maps/map_002/nodes/map_node_001"]
+[editable path="overworld/maps/map_002/nodes/fight1"]
+[editable path="overworld/maps/map_002/nodes/fight2"]
+[editable path="overworld/maps/map_002/nodes/item_reward"]
+[editable path="overworld/maps/map_002/nodes/character_joins"]
+[editable path="overworld/maps/map_002/nodes/change_map"]
+[editable path="overworld/maps/map_003/nodes/map_node_001"]
+[editable path="overworld/maps/map_003/nodes/fight1"]
+[editable path="overworld/maps/map_003/nodes/fight2"]
+[editable path="overworld/maps/map_003/nodes/end_game_notification"]

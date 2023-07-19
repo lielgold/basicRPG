@@ -1,0 +1,119 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Ability",
+"language": "GDScript",
+"path": "res://character/ability_v2.gd"
+}, {
+"base": "Node",
+"class": "AbstractMapEvent",
+"language": "GDScript",
+"path": "res://scripts/MapEvents/scripts/AbstractMapEvent.gd"
+}, {
+"base": "Control",
+"class": "ActionButton",
+"language": "GDScript",
+"path": "res://combat/action_matrix/combat_action_button.gd"
+}, {
+"base": "Control",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scripts/character.gd"
+}, {
+"base": "Control",
+"class": "CharacterMenu_V3",
+"language": "GDScript",
+"path": "res://menus/chararter_menu/character menu_v3.gd"
+}, {
+"base": "Node",
+"class": "CombatEncounter",
+"language": "GDScript",
+"path": "res://combat/combat.gd"
+}, {
+"base": "Node",
+"class": "GameData",
+"language": "GDScript",
+"path": "res://scripts/game_data.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Node",
+"class": "InventoryItem",
+"language": "GDScript",
+"path": "res://character/inventory_item.gd"
+}, {
+"base": "TextureButton",
+"class": "MapNode",
+"language": "GDScript",
+"path": "res://scripts/MapEvents/MapNode.gd"
+}, {
+"base": "Control",
+"class": "Overworld",
+"language": "GDScript",
+"path": "res://scripts/overworld.gd"
+}, {
+"base": "TextureButton",
+"class": "OverworldNode",
+"language": "GDScript",
+"path": "res://scripts/overworld_node.gd"
+}, {
+"base": "Node",
+"class": "Passive",
+"language": "GDScript",
+"path": "res://character/passive_v2.gd"
+} ]
+_global_script_class_icons={
+"Ability": "",
+"AbstractMapEvent": "",
+"ActionButton": "",
+"Character": "",
+"CharacterMenu_V3": "",
+"CombatEncounter": "",
+"GameData": "",
+"GitAPI": "",
+"InventoryItem": "",
+"MapNode": "",
+"Overworld": "",
+"OverworldNode": "",
+"Passive": ""
+}
+
+[application]
+
+config/name="basicRPG"
+run/main_scene="res://main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+
+[display]
+
+window/size/width=1680
+window/size/height=900
+window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[physics]
+
+common/enable_pause_aware_picking=true

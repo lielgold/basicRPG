@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=2]
+
+[node name="caddy" instance=ExtResource( 2 )]
+
+[node name="name" parent="." index="6"]
+text = "caddy"

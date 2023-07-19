@@ -1,0 +1,440 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://combat/action_matrix/combat_action_button.gd" type="Script" id=1]
+[ext_resource path="res://assets/target2.png" type="Texture" id=2]
+[ext_resource path="res://assets/avatar_dead_indicator.png" type="Texture" id=3]
+[ext_resource path="res://assets/item icons/fantasy dagger.png" type="Texture" id=4]
+[ext_resource path="res://character/health_bar/health_bar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/targeting_type/all.png" type="Texture" id=6]
+[ext_resource path="res://character/status_effects_indicator/status_effects_indicator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/menus/speed_indicator_background.png" type="Texture" id=8]
+[ext_resource path="res://assets/menus/attack_indicator_background.png" type="Texture" id=9]
+[ext_resource path="res://combat/assets/has_played_indicator.png" type="Texture" id=10]
+[ext_resource path="res://combat/assets/my_turn_indicator.png" type="Texture" id=11]
+[ext_resource path="res://assets/menus/arrow button2.png" type="Texture" id=12]
+[ext_resource path="res://assets/menus/arrow button2 on hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/menus/switch direction2.png" type="Texture" id=14]
+[ext_resource path="res://assets/menus/switch direction2 on hover.png" type="Texture" id=15]
+
+[sub_resource type="Animation" id=6]
+resource_name = "took_damage"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer1/damage_taken:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.6, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.225313 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 0.101
+anchor_bottom = 0.222
+margin_right = 0.319992
+margin_bottom = 0.199982
+rect_min_size = Vector2( 170, 200 )
+mouse_filter = 1
+script = ExtResource( 1 )
+
+[node name="its_my_turn_indicator" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.937255 )
+self_modulate = Color( 1, 1, 1, 0.67451 )
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+texture = ExtResource( 11 )
+
+[node name="has_played_indicator" type="TextureRect" parent="."]
+modulate = Color( 0.866667, 1, 0.992157, 0.278431 )
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+texture = ExtResource( 10 )
+
+[node name="speed_indicator_background" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -26.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Speed - this determines the initial position in the turn order."
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="ability_speed2" type="Label" parent="speed_indicator_background"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -7.0
+margin_right = -2.0
+margin_bottom = 7.0
+hint_tooltip = "Speed - this determines the initial position in the turn order."
+mouse_filter = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 2
+
+[node name="attack_indicator_background" type="TextureRect" parent="."]
+anchor_left = 0.958824
+anchor_top = 0.13
+anchor_right = 1.0
+anchor_bottom = 0.13
+margin_left = -20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ability_attack" type="Label" parent="attack_indicator_background"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -22.0
+margin_top = -7.0
+margin_right = -2.0
+margin_bottom = 7.0
+hint_tooltip = "The speed of the ability, this detemines the initial position in the turn order."
+mouse_filter = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 2
+
+[node name="name_of_character" type="Label" parent="."]
+visible = false
+anchor_left = 0.58
+anchor_top = 0.293651
+anchor_right = 0.724
+anchor_bottom = 0.360002
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 30.0
+margin_bottom = 30.0
+text = "name"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="status_effects" type="Label" parent="."]
+visible = false
+anchor_left = -0.26
+anchor_top = 0.110641
+anchor_right = -0.26
+anchor_bottom = 0.110641
+margin_left = 13.0
+margin_top = 71.1184
+margin_right = 99.0
+margin_bottom = 85.1184
+text = "status effects"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.21176
+anchor_top = 0.472275
+anchor_right = 1.43176
+anchor_bottom = 0.557583
+margin_left = -63.0
+margin_top = -45.455
+margin_right = -10.0
+margin_bottom = 22.545
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ability_speed" type="Label" parent="VBoxContainer"]
+visible = false
+margin_right = 90.0
+margin_bottom = 14.0
+text = "speed"
+
+[node name="ap_cost" type="Label" parent="VBoxContainer"]
+visible = false
+margin_top = 18.0
+margin_right = 117.0
+margin_bottom = 32.0
+text = "ap:"
+
+[node name="item_active" type="Label" parent="VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 14.0
+text = "item"
+
+[node name="VBoxContainer_bottom_elements" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 170, 170 )
+custom_constants/separation = 2
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer_bottom_elements"]
+margin_right = 170.0
+margin_bottom = 102.0
+mouse_filter = 1
+size_flags_horizontal = 7
+size_flags_vertical = 7
+
+[node name="portait" type="TextureRect" parent="VBoxContainer_bottom_elements/CenterContainer"]
+margin_left = 34.0
+margin_right = 136.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 102, 102 )
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+
+[node name="target_indicator" type="TextureRect" parent="VBoxContainer_bottom_elements/CenterContainer/portait"]
+modulate = Color( 1, 1, 1, 0.737255 )
+anchor_left = 0.210784
+anchor_top = 0.529412
+anchor_right = 0.740196
+anchor_bottom = 0.970588
+margin_left = -26.5
+margin_top = -24.0
+margin_right = 26.5
+margin_bottom = 24.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="died_indicator" type="TextureRect" parent="VBoxContainer_bottom_elements/CenterContainer/portait"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -40.0
+margin_right = 55.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
+[node name="health_bar" parent="VBoxContainer_bottom_elements" instance=ExtResource( 5 )]
+margin_top = 104.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="select_action_container" type="HBoxContainer" parent="VBoxContainer_bottom_elements"]
+margin_top = 133.0
+margin_right = 170.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 150, 20 )
+
+[node name="charges_remaining" type="Label" parent="VBoxContainer_bottom_elements/select_action_container"]
+margin_top = 3.0
+margin_right = 8.0
+margin_bottom = 17.0
+hint_tooltip = "Charges remaining. This is  number of time the ability can be used."
+mouse_filter = 1
+text = "2"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer_bottom_elements/select_action_container/charges_remaining"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 0.258824 )
+
+[node name="select_action_button" type="OptionButton" parent="VBoxContainer_bottom_elements/select_action_container"]
+margin_left = 12.0
+margin_right = 167.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 155, 20 )
+hint_tooltip = "The ability to use. "
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ability name"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="team_indicator" type="ColorRect" parent="VBoxContainer_bottom_elements/select_action_container/select_action_button"]
+visible = false
+modulate = Color( 1, 1, 1, 0.054902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="highlight_for_selection" type="ColorRect" parent="VBoxContainer_bottom_elements/select_action_container/select_action_button"]
+visible = false
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 3.0
+margin_bottom = 4.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="targeting_type_indicator" type="TextureRect" parent="VBoxContainer_bottom_elements/select_action_container/select_action_button"]
+margin_left = 134.0
+margin_right = 158.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer_bottom_elements"]
+visible = false
+margin_top = 155.0
+margin_right = 170.0
+margin_bottom = 160.0
+custom_constants/separation = 5
+
+[node name="HBoxContainer" type="Control" parent="VBoxContainer_bottom_elements"]
+margin_top = 155.0
+margin_right = 170.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer_left" type="VBoxContainer" parent="VBoxContainer_bottom_elements/HBoxContainer"]
+margin_right = 54.0
+margin_bottom = 27.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="move_left" type="TextureButton" parent="VBoxContainer_bottom_elements/HBoxContainer/VBoxContainer_left"]
+visible = false
+margin_right = 54.0
+margin_bottom = 27.0
+hint_tooltip = "Move left. Uses ability charges."
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+
+[node name="charges_move_left" type="TextureButton" parent="VBoxContainer_bottom_elements/HBoxContainer/VBoxContainer_left"]
+margin_right = 54.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+
+[node name="change_ability_direction" type="TextureButton" parent="VBoxContainer_bottom_elements/HBoxContainer"]
+margin_left = 58.0
+margin_right = 112.0
+margin_bottom = 27.0
+hint_tooltip = "Change the direction of the ability. Uses ability charges."
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
+expand = true
+
+[node name="VBoxContainer_right" type="VBoxContainer" parent="VBoxContainer_bottom_elements/HBoxContainer"]
+margin_left = 116.0
+margin_right = 170.0
+margin_bottom = 27.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="move_right" type="TextureButton" parent="VBoxContainer_bottom_elements/HBoxContainer/VBoxContainer_right"]
+visible = false
+margin_right = 54.0
+margin_bottom = 11.0
+hint_tooltip = "Move right. Uses ability charges."
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+flip_h = true
+
+[node name="charges_move_right" type="TextureButton" parent="VBoxContainer_bottom_elements/HBoxContainer/VBoxContainer_right"]
+margin_right = 54.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+flip_h = true
+
+[node name="status_effects_container" type="GridContainer" parent="."]
+anchor_left = 0.0470588
+anchor_top = 0.01
+anchor_right = 0.0470588
+anchor_bottom = 0.01
+margin_left = -4.0
+margin_top = 66.0
+margin_right = 163.0
+margin_bottom = 97.0
+columns = 5
+
+[node name="StatusIndicator" parent="status_effects_container" instance=ExtResource( 7 )]
+
+[node name="StatusIndicator2" parent="status_effects_container" instance=ExtResource( 7 )]
+margin_left = 35.0
+margin_right = 65.0
+
+[node name="StatusIndicator3" parent="status_effects_container" instance=ExtResource( 7 )]
+margin_left = 69.0
+margin_right = 99.0
+
+[node name="StatusIndicator4" parent="status_effects_container" instance=ExtResource( 7 )]
+margin_left = 103.0
+margin_right = 133.0
+
+[node name="StatusIndicator5" parent="status_effects_container" instance=ExtResource( 7 )]
+margin_left = 137.0
+margin_right = 167.0
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
+anims/took_damage = SubResource( 6 )
+
+[node name="damage_taken" type="RichTextLabel" parent="AnimationPlayer1"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 0.00892857
+anchor_bottom = 0.03
+margin_left = 76.0
+margin_top = 11.0
+margin_right = 81.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 20, 15 )
+rect_scale = Vector2( 1.52615, 1.81582 )
+custom_colors/default_color = Color( 1, 0.0588235, 0.0588235, 1 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": true
+}

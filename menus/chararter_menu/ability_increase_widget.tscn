@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/chararter_menu/ability_increase_widget.gd" type="Script" id=3]
+
+[node name="ability increase widget" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="charges" type="Label" parent="."]
+margin_top = 13.0
+margin_right = 61.0
+margin_bottom = 27.0
+text = "charges:  "
+
+[node name="decrease" type="Button" parent="."]
+visible = false
+margin_left = 65.0
+margin_right = 95.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 30, 40 )
+text = "<"
+
+[node name="ability_name" type="Button" parent="."]
+margin_left = 65.0
+margin_right = 156.0
+margin_bottom = 40.0
+text = "ability name"
+
+[node name="increase" type="Button" parent="."]
+visible = false
+margin_left = 194.0
+margin_right = 214.0
+margin_bottom = 40.0
+text = ">"
+
+[node name="item_active_connected" type="Label" parent="."]
+margin_left = 160.0
+margin_top = 13.0
+margin_right = 346.0
+margin_bottom = 27.0
+text = "show_connected_item_active"

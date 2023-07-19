@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/characters/standard character.tscn" type="PackedScene" id=2]
+
+[node name="character" instance=ExtResource( 2 )]
+character_name = "tanky guy"
+abilities_to_add_v2 = [ 11, 13, 3, 0 ]
+passives_to_add_v2 = [ 0 ]
+
+[node name="name" parent="." index="6"]
+text = "tanky guy"
